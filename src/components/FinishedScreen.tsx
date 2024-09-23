@@ -1,18 +1,8 @@
-import { QuizReducerAction } from "../QuizReducerAction";
+import { useQuiz } from "../context/QuizContext";
 
-interface FinishedScreenProps {
-  points: number;
-  maxPoints: number;
-  highscore: number;
-  dispatch: React.Dispatch<QuizReducerAction>;
-}
+export default function FinishedScreen() {
+  const { maxPoints, points, highscore, dispatch } = useQuiz();
 
-export default function FinishedScreen({
-  points,
-  maxPoints,
-  highscore,
-  dispatch,
-}: FinishedScreenProps) {
   const percentage = (points / maxPoints) * 100;
 
   let emoji;

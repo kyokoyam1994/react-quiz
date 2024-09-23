@@ -1,13 +1,9 @@
-import { QuizQuestion } from "../QuizQuestion";
-import { QuizReducerAction } from "../QuizReducerAction";
+import { useQuiz } from "../context/QuizContext";
 
-interface OptionsProps {
-  question: QuizQuestion;
-  answer: number | null;
-  dispatch: React.Dispatch<QuizReducerAction>;
-}
+export default function Options() {
+  const { questions, index, answer, dispatch } = useQuiz();
+  const question = questions[index];
 
-export default function Options({ question, answer, dispatch }: OptionsProps) {
   const hasAnswered = answer !== null;
   return (
     <div className="options">
